@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a class="btn btn-default" href="/gcompany">Back to Group Companys</a>
+    <hr>
+    <h2 class="page-header">{{ gcompanies.name }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Description: {{ gcompanies.description }}</li>
+    </ul>
+{% endblock %}

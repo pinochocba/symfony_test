@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Ultimos Registros </h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Company Name</th>
+            <th>Description</th>
+            <th>Group Company</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+        <tr>
+            <th scope="row">{{ company.id }}</th>
+            <td>{{ company.name }}</td>
+            <td>{{ company.description }}</td>
+            <td>{{ company.gcompanys.id }}</td>
+            <td>
+                <a href="/company/details/{{ company.id }}" class="btn btn-success">View</a>
+                <a href="/company/edit/{{ company.id }}" class="btn btn-defaults">Edit</a>
+                <a href="/company/delete/{{ company.id }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/company/create"><button type="button" class="btn btn-default btn-lg active">Create Company</button></a>
+{% endblock %}
